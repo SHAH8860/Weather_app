@@ -1,0 +1,85 @@
+<mat-toolbar color="primary" class="head">
+  <div class="example-sidenav-content">
+    <button type="button" mat-button (click)="sidenav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
+  <span>
+    <h1>Apple</h1>
+  </span>
+  <span class="example-spacer"></span>
+  <form class="d-flex" role="search">
+    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search" [(ngModel)]="search">
+    <button class="btn btn-outline-primary" type="submit" (click)="getweather()">Search</button>
+  </form>
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+    <mat-icon>notifications</mat-icon><span matBadge="4"></span>
+  </button>
+</mat-toolbar>
+<mat-sidenav-container style="height: 30rem;">
+  <mat-sidenav #sidenav mode="side" style="width: 15rem;">
+
+    <mat-list role="list">
+      <mat-list-item role="listitem"> <img src="../../../assets/img/tiger-g9bdd25993_1280.png"
+          class=" border rounded-circle" alt="Loading...">&nbsp;<span>User Name</span></mat-list-item>
+      <hr>
+      <mat-list-item role="listitem">
+        <mat-icon>home</mat-icon>Home
+      </mat-list-item>
+      <mat-list-item role="listitem">
+        <mat-icon>person</mat-icon>About Us
+      </mat-list-item>
+      <mat-list-item role="listitem">
+        <mat-icon>call</mat-icon>Contact Us
+      </mat-list-item>
+      <mat-list-item role="listitem">
+        <mat-icon>fastfood</mat-icon>Order
+      </mat-list-item>
+    </mat-list>
+
+
+
+  </mat-sidenav>
+  <!-- <div class="container">
+      <div class="row">
+        <ng-container *ngFor="let val of food;let a of anime">
+          <div class="col-sm-4 p-2 ">
+            <div class="card " style="width: 18rem;">
+              <img src={{a.anime_img}} class="card-img-top w-50 h-50 ms-5 mt-2" alt="Loading..." >
+              <div class="card-body">
+                <h1 class="card-title">{{a.anime_name}}</h1>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="#" class="btn btn-primary">Book Now</a>
+              </div>
+            </div>
+           </div>
+        </ng-container>
+      </div>
+    </div> -->
+  <div class="container mt-5 d-flex justify-content-center">
+    <div class="card  d-flex justify-content-center bg-dark" style="width: 18rem;">
+      <div class="img">
+        <span  *ngIf="climate=='Cloud'"><i class="fa-solid fa-cloud w-75  fa-3x  text-white"></i></span> 
+        <span    *ngIf="climate=='Haze'"><i class="fa-solid fa-smog w-75 fa-3x  text-white "></i></span>
+        <span   *ngIf="climate=='clear sky'"><i class="fa-solid fa-sun w-75 fa-3x  text-white"></i></span>
+      </div>
+      <div class="card-body d-flex flex-column justify-content-center p-5">
+        <h1 class="card-title text-white"><i class="fa-solid fa-street-view text-white"></i>{{city}},IN</h1>
+        <p class="card-text text-white">{{date|date:'full'}}</p>
+        <h1 style="font-weight: 500;" class="text-white">{{temp}}<span>&#8451;</span></h1>
+        <h3 class="text-white">{{ Mintemp}}<span>&#8451;</span>|{{Mtemp}}<span>&#8451;</span>
+        </h3>
+      </div>
+    </div>
+  </div>
+  <!-- <agm-map [latitude]="lat" [longitude]="lng" (mapClick)=" occlick($event)">
+    <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+  </agm-map> -->
+  <div *ngFor="let a of list">
+    <li [ngStyle]="{'background-color': a.name === 'mango' ? 'green' : 'red'}">{{a.name}}</li>
+  </div>
+ 
+
+
+  
+</mat-sidenav-container>
